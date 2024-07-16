@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e8e6bad6694364ca6a234049786d63e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b66b68c201004b58991582c2fe6119f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.37, y: 1.65}
+    oldSize: {x: 0.12, y: 0.13}
     newSize: {x: 10, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -153,11 +153,11 @@ MonoBehaviour:
   offsetY: 0.35
   offsetZ: 0
   crackingSprites:
-  - {fileID: 21300000, guid: 49c5835df17404c42a6ef3e1924bf285, type: 3}
-  - {fileID: 21300000, guid: 29f1993dac218476abd41a6063ca7c25, type: 3}
-  - {fileID: 21300000, guid: 931a4fdf106794f68a6230f2f4185ec5, type: 3}
-  - {fileID: 21300000, guid: 3ab23978172294985b3c3f62c52e66ce, type: 3}
-  - {fileID: 21300000, guid: b0ab189af9c4241c09cc943b0b2269c1, type: 3}
+  - {fileID: 21300000, guid: be3b8130aefa94385bda0e92b6b437a9, type: 3}
+  - {fileID: 21300000, guid: 1fc8c49be3d4d4e7ba36afa5c4cbb184, type: 3}
+  - {fileID: 21300000, guid: f041ab23fc0e64c099c76167e15e3bcb, type: 3}
+  - {fileID: 21300000, guid: 81a69cae6a67e4de5b66be5d4d5a3b52, type: 3}
+  - {fileID: 21300000, guid: 49c0c57ae1871494ca9170b319673634, type: 3}
   animationDuration: 1
 --- !u!50 &3133279275852554815
 Rigidbody2D:
@@ -211,9 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crackingSprites:
-  - {fileID: 21300000, guid: 49c5835df17404c42a6ef3e1924bf285, type: 3}
-  - {fileID: 21300000, guid: 29f1993dac218476abd41a6063ca7c25, type: 3}
-  - {fileID: 21300000, guid: 931a4fdf106794f68a6230f2f4185ec5, type: 3}
-  - {fileID: 21300000, guid: 3ab23978172294985b3c3f62c52e66ce, type: 3}
-  - {fileID: 21300000, guid: b0ab189af9c4241c09cc943b0b2269c1, type: 3}
+  - {fileID: 21300000, guid: be3b8130aefa94385bda0e92b6b437a9, type: 3}
+  - {fileID: 21300000, guid: 1fc8c49be3d4d4e7ba36afa5c4cbb184, type: 3}
+  - {fileID: 21300000, guid: f041ab23fc0e64c099c76167e15e3bcb, type: 3}
+  - {fileID: 21300000, guid: 81a69cae6a67e4de5b66be5d4d5a3b52, type: 3}
+  - {fileID: 21300000, guid: 49c0c57ae1871494ca9170b319673634, type: 3}
   animationDuration: 1
