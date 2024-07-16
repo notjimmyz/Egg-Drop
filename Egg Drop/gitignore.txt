@@ -70,3 +70,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+Egg Drop/Library/PackageCache/com.unity.burst@1.8.13/.Runtime/libburst-llvm-16.dylib
+Egg Drop/Library/PackageCache/com.unity.burst@1.8.13/.Runtime/libburst-llvm-10.dylib
+Egg Drop/Library/PackageCache/com.unity.burst@1.8.13/.Runtime/libburst-llvm-16.so
+
