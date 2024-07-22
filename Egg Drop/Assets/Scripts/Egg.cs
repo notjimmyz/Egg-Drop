@@ -2,75 +2,64 @@ using UnityEngine;
 
 public class Egg : MonoBehaviour
 {
-    public float startX = 0f; // Initial X position
-    public float startY = 0f; // Initial Y position
-    public float startZ = 0f; // Initial Z position
-    public float offsetX = 0f; // Offset for X position
-    public float offsetY = 0f; // Offset for Y position
-    public float offsetZ = 0f; // Offset for Z position
+    public Sprite[] crackingSprites;
+    public float animationDuration = 1f;
+    public float offsetX = 0f;
+    public float offsetY = 0f;
+    public float offsetZ = 0f;
 
-    private bool isDropped = false;
-    private bool hasScored = false;
-    
-    public Sprite[] crackingSprites; // Array to hold the egg cracking sprites
-    public float animationDuration = 1f; // Total duration of the cracking animation
     private SpriteRenderer spriteRenderer;
     private bool isCracking = false;
     private float animationTimer = 0f;
     private int currentSpriteIndex = 0;
+    private bool isDropped = false;
+    private bool hasScored = false;
 
     void Start()
     {
-        // Set the initial position of the egg
-        transform.position = new Vector3(startX, startY, startZ);
-
-        // Get the SpriteRenderer component
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        // Ensure the crackingSprites array is not empty
         if (crackingSprites.Length > 0)
         {
-            // Set the initial sprite
             spriteRenderer.sprite = crackingSprites[0];
         }
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isDropped) // Left mouse button or screen tap
-        {
-            DropEgg();
-        }
-
         if (isCracking)
         {
             AnimateCracking();
         }
     }
 
-    void DropEgg()
+    public void DropEgg()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.isKinematic = false; // Enable gravity physics
-        rb.gravityScale = 1; // Ensure gravity is enabled
-        isDropped = true;
+        if (!isDropped)
+        {
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                isDropped = true;
+            }
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.tag == "Obstacle")
+        if (collision.gameObject.CompareTag("Nests") && !hasScored)
         {
-            FindObjectOfType<GameManager>().GameOver();
-        }
-        else if (other.gameObject.tag == "Scoring" && !hasScored)
-        {
-            Nests nest = other.gameObject.GetComponent<Nests>();
+            Nests nest = collision.gameObject.GetComponent<Nests>();
             if (nest != null && !nest.HasEgg())
             {
                 hasScored = true;
-                FindObjectOfType<GameManager>().IncreaseScore(this, nest);
+                GameManager.Instance.IncreaseScore(this, nest);
                 AttachToNest(nest.transform);
             }
+        }
+        else if (collision.gameObject.CompareTag("Ground") && !hasScored)
+        {
+            StartCrackingAnimation();
         }
     }
 
@@ -79,23 +68,30 @@ public class Egg : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        rb.isKinematic = true; // Disable further physics interactions
-        rb.gravityScale = 0; // Disable gravity
+        rb.isKinematic = true;
 
-        transform.SetParent(nestTransform); // Set nest as parent
-        transform.localPosition = new Vector3(offsetX, offsetY, offsetZ); // Set position with offset
+        transform.SetParent(nestTransform);
+        transform.localPosition = new Vector3(offsetX, offsetY, offsetZ);
     }
 
     public void StopCompletely()
     {
-        isCracking = true; // Start the cracking animation
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        rb.isKinematic = true; // Disable further physics interactions
-        rb.gravityScale = 0; // Disable gravity
+        rb.isKinematic = true;
     }
-    
+
+    public void StartCrackingAnimation()
+    {
+        if (!isCracking)
+        {
+            isCracking = true;
+            animationTimer = 0f;
+            currentSpriteIndex = 0;
+        }
+    }
+
     void AnimateCracking()
     {
         animationTimer += Time.deltaTime;
@@ -103,7 +99,6 @@ public class Egg : MonoBehaviour
 
         if (animationTimer >= timePerSprite)
         {
-            // Move to the next sprite
             animationTimer -= timePerSprite;
             currentSpriteIndex++;
 
@@ -111,18 +106,23 @@ public class Egg : MonoBehaviour
             {
                 spriteRenderer.sprite = crackingSprites[currentSpriteIndex];
             }
-
-            // If the current sprite index reaches 5, stop the animation
-            if (currentSpriteIndex >= 5)
+            else
             {
                 isCracking = false;
-
-                // Trigger Game Over after the animation if necessary
-                FindObjectOfType<GameManager>().GameOver();
-
-                // Optionally, destroy the egg object after animation
-                // Destroy(gameObject);
+                GameManager.Instance.GameOver();
+                DestroyEgg();
             }
         }
+    }
+
+    void OnBecameInvisible()
+    {
+        DestroyEgg();
+    }
+
+    void DestroyEgg()
+    {
+        GameManager.Instance.EggDestroyed(gameObject);
+        Destroy(gameObject);
     }
 }
