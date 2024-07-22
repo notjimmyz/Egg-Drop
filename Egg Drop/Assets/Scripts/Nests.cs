@@ -45,7 +45,6 @@ public class Nests : MonoBehaviour
     {
         egg.transform.SetParent(transform);
         egg.transform.localPosition = new Vector3(offset.x, offset.y, 0); // Position egg with offset
-        egg.transform.localRotation = Quaternion.identity; // Reset rotation to zero
         Egg eggScript = egg.GetComponent<Egg>();
         if (eggScript != null)
         {

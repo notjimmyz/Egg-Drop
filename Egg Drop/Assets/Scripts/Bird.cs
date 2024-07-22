@@ -6,7 +6,7 @@ public class Bird : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Check for mouse button press
+        if (Input.GetMouseButtonDown(0) && GameManager.Instance.IsGameStarted()) // Check for mouse button press and if the game has started
         {
             DropEgg();
         }

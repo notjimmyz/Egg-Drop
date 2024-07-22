@@ -46,7 +46,13 @@ public class Egg : MonoBehaviour
                 nest.SetEgg(); // Mark the nest as having an egg
                 GameManager.Instance.IncreaseScore(this, nest); // Increment score
                 StopEgg();
+                SetUpright(); // Ensure the egg is upright
             }
+        }
+        else if (collision.gameObject.CompareTag("Ground"))
+        {
+            Debug.Log("Collision with Ground object");
+            GameManager.Instance.GameOver(); // Call GameOver in GameManager
         }
     }
 
@@ -68,5 +74,15 @@ public class Egg : MonoBehaviour
             spriteRenderer.sortingLayerName = "Nests"; // Ensure the egg's sorting layer is "Nests"
             spriteRenderer.sortingOrder = 100; // Ensure the egg's sorting order is 100
         }
+    }
+
+    public void StopMoving()
+    {
+        StopEgg();
+    }
+
+    public void SetUpright()
+    {
+        transform.rotation = Quaternion.identity; // Set the rotation to zero to keep the egg upright
     }
 }

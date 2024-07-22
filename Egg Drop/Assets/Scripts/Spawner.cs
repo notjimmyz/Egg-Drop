@@ -22,13 +22,13 @@ public class Spawner : MonoBehaviour
     private int currentMaxNests;
     private List<GameObject> activeNests = new List<GameObject>();
 
+    private bool gameStarted = false;
+
     private void OnEnable()
     {
         currentMinSpawnRate = initialMinSpawnRate;
         currentMaxSpawnRate = initialMaxSpawnRate;
         currentMaxNests = initialMaxNests;
-        StartCoroutine(IncreaseMaxNests());
-        ScheduleNextSpawn();
     }
 
     private void OnDisable()
@@ -39,6 +39,8 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        if (!gameStarted) return;
+
         // Remove destroyed nests from the list
         activeNests.RemoveAll(nest => nest == null);
 
@@ -58,8 +60,26 @@ public class Spawner : MonoBehaviour
         transform.position = spawnerPosition;
     }
 
+    public void StartSpawning()
+    {
+        gameStarted = true;
+        Debug.Log("Spawning started");
+        StartCoroutine(IncreaseMaxNests());
+        ScheduleNextSpawn();
+    }
+
+    public void StopSpawning()
+    {
+        gameStarted = false;
+        Debug.Log("Spawning stopped");
+        CancelInvoke(nameof(Spawn));
+        StopCoroutine(IncreaseMaxNests());
+    }
+
     private void Spawn()
     {
+        if (!gameStarted) return;
+
         if (activeNests.Count >= currentMaxNests)
         {
             ScheduleNextSpawn(); // Schedule the next spawn check
@@ -106,6 +126,8 @@ public class Spawner : MonoBehaviour
 
     private void ScheduleNextSpawn()
     {
+        if (!gameStarted) return;
+
         float spawnDelay = Random.Range(currentMinSpawnRate, currentMaxSpawnRate);
         Debug.Log($"Next spawn scheduled in {spawnDelay} seconds.");
         Invoke(nameof(Spawn), spawnDelay);
@@ -113,7 +135,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator IncreaseMaxNests()
     {
-        while (currentMaxNests < 7)
+        while (gameStarted && currentMaxNests < 7)
         {
             yield return new WaitForSeconds(increaseInterval);
             currentMaxNests++;
