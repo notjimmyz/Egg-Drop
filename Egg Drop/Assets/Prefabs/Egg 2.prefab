@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3133279275852554815}
   - component: {fileID: 1115373931699458080}
   - component: {fileID: 3725591692199708168}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Egg 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.68, y: 2.47, z: 5}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02, y: -0.12}
+  m_Offset: {x: 0, y: -0.06}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.08}
+  m_Size: {x: 0.08, y: 0.04}
   m_EdgeRadius: 0
 --- !u!114 &6848681626199297420
 MonoBehaviour:
@@ -146,16 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa233aac4f6f449ac8357d0677b2d758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crackingSprites:
-  - {fileID: 21300000, guid: be3b8130aefa94385bda0e92b6b437a9, type: 3}
-  - {fileID: 21300000, guid: 1fc8c49be3d4d4e7ba36afa5c4cbb184, type: 3}
-  - {fileID: 21300000, guid: f041ab23fc0e64c099c76167e15e3bcb, type: 3}
-  - {fileID: 21300000, guid: 81a69cae6a67e4de5b66be5d4d5a3b52, type: 3}
-  - {fileID: 21300000, guid: 49c0c57ae1871494ca9170b319673634, type: 3}
-  animationDuration: 1
-  offsetX: 0
-  offsetY: 0
-  offsetZ: 0
+  offset: {x: -0.01, y: 0.04}
 --- !u!50 &3133279275852554815
 Rigidbody2D:
   serializedVersion: 4
@@ -164,13 +155,13 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868187864476999904}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -190,11 +181,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868187864476999904}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da8e1f0616c13448baaeb2671c849636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eggPrefab: {fileID: 0}
 --- !u!114 &3725591692199708168
 MonoBehaviour:
   m_ObjectHideFlags: 0

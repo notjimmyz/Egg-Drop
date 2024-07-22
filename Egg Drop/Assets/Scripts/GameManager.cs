@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text scoreText;
     public GameObject restartButton;
     public GameObject eggPrefab;
-    public Transform dropPosition;
+    public Transform birdTransform; // Use bird's transform as drop position
 
     private int score;
     private bool gameOver = false;
@@ -48,9 +48,9 @@ public class GameManager : MonoBehaviour
 
     private void SpawnAndDropEgg()
     {
-        if (dropPosition != null && eggPrefab != null && currentEgg == null)
+        if (birdTransform != null && eggPrefab != null && currentEgg == null)
         {
-            currentEgg = Instantiate(eggPrefab, dropPosition.position, Quaternion.identity);
+            currentEgg = Instantiate(eggPrefab, birdTransform.position, Quaternion.identity);
             Egg eggScript = currentEgg.GetComponent<Egg>();
             if (eggScript != null)
             {
@@ -69,14 +69,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         if (gameOver) return; // Prevent multiple GameOver calls
-        
+
         gameOver = true;
         if (scoreText != null)
         {
             scoreText.text = "Game Over";
         }
         Debug.Log("Game Over");
-        StopAll();
         if (restartButton != null)
         {
             restartButton.SetActive(true);
@@ -87,7 +86,6 @@ public class GameManager : MonoBehaviour
     {
         if (gameOver) return;
         score++;
-        nest.SetEgg();
         UpdateScoreText();
         if (currentEgg == egg.gameObject)
         {
@@ -100,22 +98,6 @@ public class GameManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score.ToString();
-        }
-    }
-
-    private void StopAll()
-    {
-        foreach (var nest in FindObjectsOfType<Nests>())
-        {
-            nest.StopMoving();
-        }
-        if (currentEgg != null)
-        {
-            Egg eggScript = currentEgg.GetComponent<Egg>();
-            if (eggScript != null)
-            {
-                eggScript.StopCompletely();
-            }
         }
     }
 

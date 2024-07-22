@@ -12,11 +12,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Nests
   - Water
   - UI
-  - 
-  - 
+  - Egg
+  - Non-scoring
   - 
   - 
   - 
@@ -48,6 +48,9 @@ TagManager:
   - name: Nests
     uniqueID: 2917704859
     locked: 0
-  - name: egg
+  - name: Egg
     uniqueID: 2140238553
+    locked: 0
+  - name: Non-scoring
+    uniqueID: 1576451983
     locked: 0

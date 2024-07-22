@@ -8,10 +8,12 @@ public class EggCracking : MonoBehaviour
     private bool isCracking = false;
     private float animationTimer = 0f;
     private int currentSpriteIndex = 0;
+    private Rigidbody2D rb;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
     }
 
     public void StartCrackingAnimation()
@@ -19,6 +21,12 @@ public class EggCracking : MonoBehaviour
         isCracking = true;
         animationTimer = 0f;
         currentSpriteIndex = 0;
+
+        // Start the animation immediately by setting the first sprite
+        if (crackingSprites.Length > 0)
+        {
+            spriteRenderer.sprite = crackingSprites[0];
+        }
     }
 
     void Update()
@@ -48,12 +56,24 @@ public class EggCracking : MonoBehaviour
             {
                 // Animation is done
                 isCracking = false;
-                
-                // Trigger Game Over after the animation
-                FindObjectOfType<GameManager>().GameOver();
 
                 // Optionally, destroy the egg object after animation
                 Destroy(gameObject);
+            }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            StartCrackingAnimation();
+
+            // Stop the egg's movement
+            if (rb != null)
+            {
+                rb.velocity = Vector2.zero; // Stop all movement
+                rb.bodyType = RigidbodyType2D.Kinematic; // Disable physics simulation
             }
         }
     }

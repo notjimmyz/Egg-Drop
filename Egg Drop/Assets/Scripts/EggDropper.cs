@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EggDropper : MonoBehaviour
 {
-    private bool isDropped = false;
+    public GameObject eggPrefab; // Reference to the egg prefab
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !isDropped) // Left mouse button or screen tap
+        if (Input.GetMouseButtonDown(0)) // Check for mouse button press
         {
             DropEgg();
         }
@@ -14,37 +14,15 @@ public class EggDropper : MonoBehaviour
 
     void DropEgg()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
+        if (eggPrefab != null)
         {
-            rb.bodyType = RigidbodyType2D.Dynamic; // Enable gravity physics
-            isDropped = true;
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Nest"))
-        {
-            // Disable the Rigidbody2D to stop the egg from moving
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
-            if (rb != null)
+            Vector3 spawnPosition = transform.position; // Get the bird's position
+            GameObject newEgg = Instantiate(eggPrefab, spawnPosition, Quaternion.identity); // Instantiate a new egg
+            Egg eggScript = newEgg.GetComponent<Egg>();
+            if (eggScript != null)
             {
-                rb.velocity = Vector2.zero; // Stop the egg's movement
-                rb.angularVelocity = 0f; // Stop any rotation
-                rb.isKinematic = true; // Disable physics simulation
+                eggScript.DropEgg(); // Call DropEgg to enable gravity
             }
-
-            // Add points to the score
-            ScoreManager.instance.AddScore(1);
-
-            // Destroy the egg after a short delay (if desired)
-            // Destroy(gameObject, 0.5f); // Delay in seconds
         }
-    }
-
-    void OnBecameInvisible()
-    {
-        Destroy(gameObject); // Destroy the egg when it goes off the screen
     }
 }

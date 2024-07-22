@@ -2,127 +2,71 @@ using UnityEngine;
 
 public class Egg : MonoBehaviour
 {
-    public Sprite[] crackingSprites;
-    public float animationDuration = 1f;
-    public float offsetX = 0f;
-    public float offsetY = 0f;
-    public float offsetZ = 0f;
-
-    private SpriteRenderer spriteRenderer;
-    private bool isCracking = false;
-    private float animationTimer = 0f;
-    private int currentSpriteIndex = 0;
+    private Rigidbody2D rb;
     private bool isDropped = false;
-    private bool hasScored = false;
+    private SpriteRenderer spriteRenderer;
+    public Vector2 offset; // Offset for positioning the egg when attached to the nest
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (crackingSprites.Length > 0)
+        if (rb != null)
         {
-            spriteRenderer.sprite = crackingSprites[0];
-        }
-    }
-
-    void Update()
-    {
-        if (isCracking)
-        {
-            AnimateCracking();
+            rb.bodyType = RigidbodyType2D.Dynamic; // Ensure Rigidbody2D is Dynamic
+            rb.gravityScale = 1; // Ensure gravity scale is positive
         }
     }
 
     public void DropEgg()
     {
+        Debug.Log("DropEgg called");
         if (!isDropped)
         {
-            Rigidbody2D rb = GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.bodyType = RigidbodyType2D.Dynamic; // Enable gravity physics
+                rb.gravityScale = 1; // Ensure gravity scale is positive
                 isDropped = true;
+                Debug.Log("Egg is now dropping");
             }
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Nests") && !hasScored)
+        Debug.Log("Collision detected with " + collision.gameObject.name + " with tag " + collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Scoring"))
         {
+            Debug.Log("Collision with Scoring object");
             Nests nest = collision.gameObject.GetComponent<Nests>();
             if (nest != null && !nest.HasEgg())
             {
-                hasScored = true;
-                GameManager.Instance.IncreaseScore(this, nest);
-                AttachToNest(nest.transform);
-            }
-        }
-        else if (collision.gameObject.CompareTag("Ground") && !hasScored)
-        {
-            StartCrackingAnimation();
-        }
-    }
-
-    private void AttachToNest(Transform nestTransform)
-    {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        rb.isKinematic = true;
-
-        transform.SetParent(nestTransform);
-        transform.localPosition = new Vector3(offsetX, offsetY, offsetZ);
-    }
-
-    public void StopCompletely()
-    {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.zero;
-        rb.angularVelocity = 0f;
-        rb.isKinematic = true;
-    }
-
-    public void StartCrackingAnimation()
-    {
-        if (!isCracking)
-        {
-            isCracking = true;
-            animationTimer = 0f;
-            currentSpriteIndex = 0;
-        }
-    }
-
-    void AnimateCracking()
-    {
-        animationTimer += Time.deltaTime;
-        float timePerSprite = animationDuration / crackingSprites.Length;
-
-        if (animationTimer >= timePerSprite)
-        {
-            animationTimer -= timePerSprite;
-            currentSpriteIndex++;
-
-            if (currentSpriteIndex < crackingSprites.Length)
-            {
-                spriteRenderer.sprite = crackingSprites[currentSpriteIndex];
-            }
-            else
-            {
-                isCracking = false;
-                GameManager.Instance.GameOver();
-                DestroyEgg();
+                nest.AttachEgg(gameObject, offset); // Attach egg with offset
+                nest.SetEgg(); // Mark the nest as having an egg
+                GameManager.Instance.IncreaseScore(this, nest); // Increment score
+                StopEgg();
             }
         }
     }
 
-    void OnBecameInvisible()
+    public void StopEgg()
     {
-        DestroyEgg();
+        Debug.Log("Stopping egg");
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero; // Stop the egg's movement
+            rb.angularVelocity = 0f; // Stop any rotation
+            rb.bodyType = RigidbodyType2D.Kinematic; // Disable physics simulation
+        }
     }
 
-    void DestroyEgg()
+    public void SetSortingLayerInFront()
     {
-        GameManager.Instance.EggDestroyed(gameObject);
-        Destroy(gameObject);
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sortingLayerName = "Nests"; // Ensure the egg's sorting layer is "Nests"
+            spriteRenderer.sortingOrder = 100; // Ensure the egg's sorting order is 100
+        }
     }
 }

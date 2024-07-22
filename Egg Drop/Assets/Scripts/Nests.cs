@@ -40,4 +40,17 @@ public class Nests : MonoBehaviour
     {
         isMoving = false;
     }
+
+    public void AttachEgg(GameObject egg, Vector2 offset)
+    {
+        egg.transform.SetParent(transform);
+        egg.transform.localPosition = new Vector3(offset.x, offset.y, 0); // Position egg with offset
+        egg.transform.localRotation = Quaternion.identity; // Reset rotation to zero
+        Egg eggScript = egg.GetComponent<Egg>();
+        if (eggScript != null)
+        {
+            eggScript.StopEgg(); // Ensure the egg stops moving independently
+            eggScript.SetSortingLayerInFront(); // Ensure the egg is in front
+        }
+    }
 }

@@ -369,7 +369,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.02, y: -3.16, z: 9.787377}
-  m_LocalScale: {x: 5.56, y: 0.21, z: 1}
+  m_LocalScale: {x: 5.56, y: 0.21, z: -6.93}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 519420032}
@@ -403,7 +403,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -832,6 +832,7 @@ GameObject:
   - component: {fileID: 416672209}
   - component: {fileID: 416672212}
   - component: {fileID: 416672213}
+  - component: {fileID: 416672214}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Bird
@@ -935,7 +936,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416672208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65bda729473e64dc1b817399ef0aec7c, type: 3}
   m_Name: 
@@ -953,8 +954,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965134211ded54c278c90a147dbdddc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &416672214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416672208}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b852047d75dc341f7a9ae7213629b5e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   eggPrefab: {fileID: 868187864476999904, guid: ec9b654d040564d43a6f3f29c30afd01, type: 3}
-  dropPosition: {fileID: 514465696}
 --- !u!1 &514465695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1133,7 @@ GameObject:
   - component: {fileID: 626881525}
   - component: {fileID: 626881524}
   - component: {fileID: 626881526}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grassland_frame_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1261,10 +1273,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f1bbf5dac8f41e48b2edd0357301f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1083929523}
   restartButton: {fileID: 408624441}
   eggPrefab: {fileID: 868187864476999904, guid: ec9b654d040564d43a6f3f29c30afd01, type: 3}
-  dropPosition: {fileID: 514465696}
+  birdTransform: {fileID: 0}
 --- !u!4 &700871865
 Transform:
   m_ObjectHideFlags: 0
@@ -1778,7 +1790,7 @@ GameObject:
   - component: {fileID: 1115011370}
   - component: {fileID: 1115011371}
   - component: {fileID: 1115011372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grassland_frame_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2023,7 +2035,7 @@ GameObject:
   - component: {fileID: 1184834784}
   - component: {fileID: 1184834785}
   - component: {fileID: 1184834786}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grassland_frame_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2175,7 +2187,7 @@ GameObject:
   - component: {fileID: 1222431368}
   - component: {fileID: 1222431369}
   - component: {fileID: 1222431370}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main_ground_frame_01 (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2429,7 +2441,7 @@ GameObject:
   - component: {fileID: 1276906124}
   - component: {fileID: 1276906125}
   - component: {fileID: 1276906126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main_ground_frame_01 (2)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3002,9 +3014,9 @@ GameObject:
   - component: {fileID: 1593625430}
   - component: {fileID: 1593625432}
   - component: {fileID: 1593625433}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main_ground_frame_01
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
