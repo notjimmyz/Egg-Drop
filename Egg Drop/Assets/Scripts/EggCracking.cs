@@ -57,6 +57,9 @@ public class EggCracking : MonoBehaviour
                 // Animation is done
                 isCracking = false;
 
+                // End the game
+                GameManager.Instance.GameOver();
+
                 // Optionally, destroy the egg object after animation
                 Destroy(gameObject);
             }

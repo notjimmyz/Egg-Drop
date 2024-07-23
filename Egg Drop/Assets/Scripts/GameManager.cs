@@ -136,20 +136,9 @@ public class GameManager : MonoBehaviour
             highScore = score;
             PlayerPrefs.SetInt("HighScore", highScore); // Save the high score
         }
-        if (scoreText != null)
-        {
-            scoreText.text = "Game Over";
-        }
         UpdateHighScoreText();
         Debug.Log("Game Over");
-        if (restartButton != null)
-        {
-            restartButton.SetActive(true);
-        }
-        if (spawner != null)
-        {
-            spawner.StopSpawning();
-        }
+        
     }
 
     public void IncreaseScore(Egg egg, Nests nest)

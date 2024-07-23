@@ -63,7 +63,6 @@ public class Spawner : MonoBehaviour
     public void StartSpawning()
     {
         gameStarted = true;
-        Debug.Log("Spawning started");
         StartCoroutine(IncreaseMaxNests());
         ScheduleNextSpawn();
     }
@@ -71,7 +70,6 @@ public class Spawner : MonoBehaviour
     public void StopSpawning()
     {
         gameStarted = false;
-        Debug.Log("Spawning stopped");
         CancelInvoke(nameof(Spawn));
         StopCoroutine(IncreaseMaxNests());
     }
