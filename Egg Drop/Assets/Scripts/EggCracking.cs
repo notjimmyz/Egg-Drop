@@ -57,9 +57,6 @@ public class EggCracking : MonoBehaviour
                 // Animation is done
                 isCracking = false;
 
-                // End the game after animation
-                GameManager.Instance.GameOver();
-
                 // Optionally, destroy the egg object after animation
                 Destroy(gameObject);
             }
@@ -70,13 +67,6 @@ public class EggCracking : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            // Freeze the game immediately
-            Time.timeScale = 0f;
-            Debug.Log("Screen frozen");
-
-            // Start the cracking animation
-            StartCrackingAnimation();
-
             // Stop the egg's movement
             if (rb != null)
             {
@@ -89,6 +79,16 @@ public class EggCracking : MonoBehaviour
 
             // Show the restart button
             GameManager.Instance.ShowRestartButton();
+
+            // Start the cracking animation
+            StartCrackingAnimation();
+
+            // Immediately set the game over state and freeze the game
+            GameManager.Instance.GameOver();
+
+            // Freeze the game immediately
+            Time.timeScale = 0f;
+            Debug.Log("Screen frozen");
         }
     }
 }

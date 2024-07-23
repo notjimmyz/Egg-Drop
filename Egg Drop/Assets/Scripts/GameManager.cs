@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("First tap detected, starting the game.");
                 StartGame();
             }
-            else if (gameStarted && canDropEggs)
+            else if (gameStarted && CanDropEggs())
             {
                 Debug.Log("Subsequent tap detected, dropping an egg.");
                 DropEgg();
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     public bool CanDropEggs()
     {
-        return canDropEggs;
+        return canDropEggs && !gameOver; // Disable egg dropping if the game is over
     }
 
     private void DropEgg()
@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
         if (gameOver) return;
 
         gameOver = true;
+        canDropEggs = false; // Ensure egg dropping is disabled immediately
         if (score > highScore)
         {
             highScore = score;
@@ -142,6 +143,11 @@ public class GameManager : MonoBehaviour
         if (spawner != null)
         {
             spawner.StopSpawning(); // Stop spawning nests immediately
+        }
+
+        if (restartButton != null)
+        {
+            restartButton.SetActive(true);
         }
     }
 
