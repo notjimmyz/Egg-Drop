@@ -188,6 +188,9 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        // Continue the game time
+        Debug.Log("Restart button clicked"); // Add this line
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
