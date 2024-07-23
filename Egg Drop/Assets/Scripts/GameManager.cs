@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(spawner);
         if (Input.GetMouseButtonDown(0))
         {
             if (tapToStartText != null && tapToStartText.gameObject.activeSelf)
@@ -195,6 +196,7 @@ public class GameManager : MonoBehaviour
         gameOver = false;
         score = 0; // Reset the score
         UpdateScoreText(); // Update the score text
+        Debug.Log(eggSpawner);
         if (spawner != null)
         {
             spawner.ResetSpawner(); // Reset the spawner to its initial state

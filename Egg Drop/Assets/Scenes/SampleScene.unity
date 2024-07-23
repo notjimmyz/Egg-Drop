@@ -1492,7 +1492,7 @@ MonoBehaviour:
   eggPrefab: {fileID: 868187864476999904, guid: ec9b654d040564d43a6f3f29c30afd01, type: 3}
   birdTransform: {fileID: 0}
   spawner: {fileID: 1116681570}
-  eggSpawner: {fileID: 0}
+  eggSpawner: {fileID: 416672213}
 --- !u!4 &700871865
 Transform:
   m_ObjectHideFlags: 0

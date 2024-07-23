@@ -28,7 +28,6 @@ public class EggSpawner : MonoBehaviour
         }
 
         activeEggs.RemoveAll(egg => egg == null);
-        LogActiveEggs(); // Log the active eggs in the update method
     }
 
     void SpawnEgg()
@@ -54,17 +53,5 @@ public class EggSpawner : MonoBehaviour
             }
         }
         activeEggs.Clear();
-    }
-
-    private void LogActiveEggs()
-    {
-        Debug.Log("Active eggs count: " + activeEggs.Count);
-        foreach (var egg in activeEggs)
-        {
-            if (egg != null)
-            {
-                Debug.Log("Active egg: " + egg.name);
-            }
-        }
     }
 }
