@@ -5,7 +5,6 @@ public class EggSpawner : MonoBehaviour
 {
     public GameObject eggPrefab;
     private Transform birdTransform;
-
     private List<GameObject> activeEggs = new List<GameObject>();
 
     void Start()
@@ -29,6 +28,7 @@ public class EggSpawner : MonoBehaviour
         }
 
         activeEggs.RemoveAll(egg => egg == null);
+        LogActiveEggs(); // Log the active eggs in the update method
     }
 
     void SpawnEgg()
@@ -38,6 +38,33 @@ public class EggSpawner : MonoBehaviour
             Vector3 spawnPosition = birdTransform.position;
             GameObject newEgg = Instantiate(eggPrefab, spawnPosition, Quaternion.identity);
             activeEggs.Add(newEgg);
+            Debug.Log("Egg spawned: " + newEgg.name);
+        }
+    }
+
+    public void DestroyAllEggs()
+    {
+        Debug.Log("Destroying all eggs...");
+        foreach (var egg in activeEggs)
+        {
+            if (egg != null)
+            {
+                Debug.Log("Destroying egg: " + egg.name);
+                Destroy(egg);
+            }
+        }
+        activeEggs.Clear();
+    }
+
+    private void LogActiveEggs()
+    {
+        Debug.Log("Active eggs count: " + activeEggs.Count);
+        foreach (var egg in activeEggs)
+        {
+            if (egg != null)
+            {
+                Debug.Log("Active egg: " + egg.name);
+            }
         }
     }
 }

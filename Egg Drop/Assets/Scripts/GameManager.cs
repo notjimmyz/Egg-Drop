@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject eggPrefab;
     public Transform birdTransform; // Use bird's transform as drop position
     public Spawner spawner; // Reference to the spawner script
+    public EggSpawner eggSpawner; // Reference to the egg spawner script
 
     private int score;
     private int highScore;
@@ -197,6 +198,10 @@ public class GameManager : MonoBehaviour
         if (spawner != null)
         {
             spawner.ResetSpawner(); // Reset the spawner to its initial state
+        }
+        if (eggSpawner != null)
+        {
+            eggSpawner.DestroyAllEggs(); // Destroy all active eggs
         }
         if (restartButton != null)
         {
