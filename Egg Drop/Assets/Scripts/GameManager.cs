@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         if (restartButton != null)
         {
-            restartButton.SetActive(false);
+            restartButton.SetActive(false); // Hide the restart button at the start
         }
         if (tapToStartText != null)
         {
@@ -143,7 +143,10 @@ public class GameManager : MonoBehaviour
         {
             spawner.StopSpawning(); // Stop spawning nests immediately
         }
+    }
 
+    public void ShowRestartButton()
+    {
         if (restartButton != null)
         {
             restartButton.SetActive(true);
@@ -187,6 +190,16 @@ public class GameManager : MonoBehaviour
         if (currentEgg == egg)
         {
             currentEgg = null;
+        }
+    }
+
+    public void UpdateHighScore()
+    {
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore); // Save the high score
+            UpdateHighScoreText(); // Update the high score text immediately
         }
     }
 }
