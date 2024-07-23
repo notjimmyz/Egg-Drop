@@ -140,4 +140,23 @@ public class Spawner : MonoBehaviour
             Debug.Log($"Increased max nests to {currentMaxNests}");
         }
     }
+
+    public void ResetSpawner()
+    {
+        StopSpawning(); // Stop any ongoing spawns
+        currentMinSpawnRate = initialMinSpawnRate;
+        currentMaxSpawnRate = initialMaxSpawnRate;
+        currentMaxNests = initialMaxNests;
+
+        // Destroy all active nests
+        foreach (var nest in activeNests)
+        {
+            if (nest != null)
+            {
+                Destroy(nest);
+            }
+        }
+
+        activeNests.Clear(); // Clear the list of active nests
+    }
 }

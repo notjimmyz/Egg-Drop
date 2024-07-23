@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -186,12 +187,22 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void RestartGame()
+    public void ResumeGame()
     {
-        // Continue the game time
-        Debug.Log("Restart button clicked"); // Add this line
+        Debug.Log("Restart button clicked");
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        gameOver = false;
+        score = 0; // Reset the score
+        UpdateScoreText(); // Update the score text
+        if (spawner != null)
+        {
+            spawner.ResetSpawner(); // Reset the spawner to its initial state
+        }
+        if (restartButton != null)
+        {
+            restartButton.SetActive(false); // Hide the restart button
+        }
+        StartGame(); // Start the game again to resume
     }
 
     public void EggDestroyed(GameObject egg)
