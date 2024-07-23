@@ -138,7 +138,16 @@ public class GameManager : MonoBehaviour
         }
         UpdateHighScoreText();
         Debug.Log("Game Over");
-        
+
+        if (spawner != null)
+        {
+            spawner.StopSpawning(); // Stop spawning nests immediately
+        }
+
+        if (restartButton != null)
+        {
+            restartButton.SetActive(true);
+        }
     }
 
     public void IncreaseScore(Egg egg, Nests nest)
