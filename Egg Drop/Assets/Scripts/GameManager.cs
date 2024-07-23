@@ -59,16 +59,24 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!gameStarted && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            StartGame();
+            if (tapToStartText != null && tapToStartText.gameObject.activeSelf)
+            {
+                Debug.Log("First tap detected, starting the game.");
+                StartGame();
+            }
+            else if (gameStarted && canDropEggs)
+            {
+                Debug.Log("Subsequent tap detected, dropping an egg.");
+                DropEgg();
+            }
         }
     }
 
     private void StartGame()
     {
         gameStarted = true;
-        canDropEggs = false; // Disable egg dropping initially
         Debug.Log("Game started");
         if (tapToStartText != null)
         {
@@ -85,6 +93,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         canDropEggs = true; // Allow egg dropping after the delay
+        Debug.Log("Egg dropping enabled.");
     }
 
     public bool IsGameStarted()
@@ -97,7 +106,7 @@ public class GameManager : MonoBehaviour
         return canDropEggs;
     }
 
-    private void SpawnAndDropEgg()
+    private void DropEgg()
     {
         if (birdTransform != null && eggPrefab != null && currentEgg == null)
         {
