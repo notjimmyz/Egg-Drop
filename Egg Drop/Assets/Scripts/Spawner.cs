@@ -21,6 +21,7 @@ public class Spawner : MonoBehaviour
     public float initialNestSpeed = 5f; // initial speed of the nests
     public float speedIncreaseRate = 1f; // amount by which the speed increases every 10 seconds
     public float maxNestSpeed = 10f; // maximum speed limit
+    public float maxSpawnRateCap = 2f; // maximum cap for the max spawn rate
 
     private float currentMinSpawnRate;
     private float currentMaxSpawnRate;
@@ -48,6 +49,8 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         if (!gameStarted) return;
+        Debug.Log(currentNestSpeed);
+        Debug.Log(currentMaxSpawnRate);
 
         // Remove destroyed nests from the list
         activeNests.RemoveAll(nest => nest == null);
@@ -118,8 +121,8 @@ public class Spawner : MonoBehaviour
         }
 
         // Increase the spawn rates gradually, but cap the increase
-        currentMinSpawnRate = Mathf.Min(initialMinSpawnRate + minGapIncreaseRate * activeNests.Count, initialMaxSpawnRate);
-        currentMaxSpawnRate = Mathf.Min(initialMaxSpawnRate + maxGapIncreaseRate * activeNests.Count, initialMaxSpawnRate * 2);
+        currentMinSpawnRate = Mathf.Min(currentMinSpawnRate + minGapIncreaseRate * activeNests.Count, initialMaxSpawnRate);
+        currentMaxSpawnRate = Mathf.Min(currentMaxSpawnRate + maxGapIncreaseRate * activeNests.Count, maxSpawnRateCap); // Cap the max spawn rate
         Debug.Log($"Updated spawn rates: Min: {currentMinSpawnRate}, Max: {currentMaxSpawnRate}");
 
         // Schedule the next spawn
@@ -168,7 +171,7 @@ public class Spawner : MonoBehaviour
     {
         while (gameStarted)
         {
-            yield return new WaitForSeconds(10f); // Increase speed every 10 seconds
+            yield return new WaitForSeconds(5f); // Increase speed every 10 seconds
             currentNestSpeed = Mathf.Min(currentNestSpeed + speedIncreaseRate, maxNestSpeed);
             Debug.Log($"Increased nest speed to {currentNestSpeed}");
         }
