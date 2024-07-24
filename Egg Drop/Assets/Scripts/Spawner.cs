@@ -17,9 +17,15 @@ public class Spawner : MonoBehaviour
 
     public float fixedY = 0f; // fixed Y position for spawning
 
+    // New speed-related variables
+    public float initialNestSpeed = 5f; // initial speed of the nests
+    public float speedIncreaseRate = 1f; // amount by which the speed increases every 10 seconds
+    public float maxNestSpeed = 10f; // maximum speed limit
+
     private float currentMinSpawnRate;
     private float currentMaxSpawnRate;
     private int currentMaxNests;
+    private float currentNestSpeed;
     private List<GameObject> activeNests = new List<GameObject>();
 
     private bool gameStarted = false;
@@ -29,12 +35,14 @@ public class Spawner : MonoBehaviour
         currentMinSpawnRate = initialMinSpawnRate;
         currentMaxSpawnRate = initialMaxSpawnRate;
         currentMaxNests = initialMaxNests;
+        currentNestSpeed = initialNestSpeed; // Initialize the nest speed
     }
 
     private void OnDisable()
     {
         CancelInvoke(nameof(Spawn));
         StopCoroutine(IncreaseMaxNests());
+        StopCoroutine(IncreaseNestSpeed());
     }
 
     private void Update()
@@ -52,6 +60,7 @@ public class Spawner : MonoBehaviour
             {
                 Destroy(nest);
                 activeNests.RemoveAt(i);
+                Debug.Log($"Destroyed nest at position: {nest.transform.position.x}");
             }
         }
 
@@ -66,7 +75,9 @@ public class Spawner : MonoBehaviour
     {
         gameStarted = true;
         StartCoroutine(IncreaseMaxNests());
+        StartCoroutine(IncreaseNestSpeed()); // Start the coroutine to increase nest speed
         ScheduleNextSpawn();
+        Debug.Log("Started spawning.");
     }
 
     public void StopSpawning()
@@ -74,6 +85,8 @@ public class Spawner : MonoBehaviour
         gameStarted = false;
         CancelInvoke(nameof(Spawn));
         StopCoroutine(IncreaseMaxNests());
+        StopCoroutine(IncreaseNestSpeed());
+        Debug.Log("Stopped spawning.");
     }
 
     private void Spawn()
@@ -83,6 +96,7 @@ public class Spawner : MonoBehaviour
         if (activeNests.Count >= currentMaxNests)
         {
             ScheduleNextSpawn(); // Schedule the next spawn check
+            Debug.Log("Reached max nests, scheduling next spawn.");
             return;
         }
 
@@ -90,8 +104,13 @@ public class Spawner : MonoBehaviour
         if (spawnPosition != Vector3.zero)
         {
             GameObject newNest = Instantiate(prefab, spawnPosition, Quaternion.identity);
+            Nests nestScript = newNest.GetComponent<Nests>();
+            if (nestScript != null)
+            {
+                nestScript.speed = currentNestSpeed; // Set the speed of the new nest
+            }
             activeNests.Add(newNest);
-            Debug.Log($"Spawned a new nest at position: {spawnPosition}");
+            Debug.Log($"Spawned a new nest at position: {spawnPosition} with speed: {currentNestSpeed}. Total nests: {activeNests.Count}");
         }
         else
         {
@@ -101,6 +120,7 @@ public class Spawner : MonoBehaviour
         // Increase the spawn rates gradually, but cap the increase
         currentMinSpawnRate = Mathf.Min(initialMinSpawnRate + minGapIncreaseRate * activeNests.Count, initialMaxSpawnRate);
         currentMaxSpawnRate = Mathf.Min(initialMaxSpawnRate + maxGapIncreaseRate * activeNests.Count, initialMaxSpawnRate * 2);
+        Debug.Log($"Updated spawn rates: Min: {currentMinSpawnRate}, Max: {currentMaxSpawnRate}");
 
         // Schedule the next spawn
         ScheduleNextSpawn();
@@ -117,6 +137,7 @@ public class Spawner : MonoBehaviour
         {
             if (Mathf.Abs(spawnX - nest.transform.position.x) < minDistanceBetweenNests)
             {
+                Debug.Log($"Spawn position too close to another nest: {nest.transform.position.x}");
                 return Vector3.zero; // No valid position found, return invalid position
             }
         }
@@ -143,12 +164,23 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    private IEnumerator IncreaseNestSpeed()
+    {
+        while (gameStarted)
+        {
+            yield return new WaitForSeconds(10f); // Increase speed every 10 seconds
+            currentNestSpeed = Mathf.Min(currentNestSpeed + speedIncreaseRate, maxNestSpeed);
+            Debug.Log($"Increased nest speed to {currentNestSpeed}");
+        }
+    }
+
     public void ResetSpawner()
     {
         StopSpawning(); // Stop any ongoing spawns
         currentMinSpawnRate = initialMinSpawnRate;
         currentMaxSpawnRate = initialMaxSpawnRate;
         currentMaxNests = initialMaxNests;
+        currentNestSpeed = initialNestSpeed; // Reset the nest speed
 
         // Destroy all active nests
         foreach (var nest in activeNests)
@@ -156,9 +188,11 @@ public class Spawner : MonoBehaviour
             if (nest != null)
             {
                 Destroy(nest);
+                Debug.Log($"Destroyed nest during reset.");
             }
         }
 
         activeNests.Clear(); // Clear the list of active nests
+        Debug.Log("Spawner reset.");
     }
 }
