@@ -45,11 +45,13 @@ public class Spawner : MonoBehaviour
         activeNests.RemoveAll(nest => nest == null);
 
         // Destroy nests that move off-screen to the left
-        foreach (var nest in activeNests)
+        for (int i = activeNests.Count - 1; i >= 0; i--)
         {
+            var nest = activeNests[i];
             if (nest.transform.position.x < cameraTransform.position.x - spawnOffset)
             {
                 Destroy(nest);
+                activeNests.RemoveAt(i);
             }
         }
 
@@ -96,9 +98,9 @@ public class Spawner : MonoBehaviour
             Debug.Log("No valid spawn position found.");
         }
 
-        // Increase the spawn rates gradually
-        currentMinSpawnRate += minGapIncreaseRate;
-        currentMaxSpawnRate += maxGapIncreaseRate;
+        // Increase the spawn rates gradually, but cap the increase
+        currentMinSpawnRate = Mathf.Min(initialMinSpawnRate + minGapIncreaseRate * activeNests.Count, initialMaxSpawnRate);
+        currentMaxSpawnRate = Mathf.Min(initialMaxSpawnRate + maxGapIncreaseRate * activeNests.Count, initialMaxSpawnRate * 2);
 
         // Schedule the next spawn
         ScheduleNextSpawn();
@@ -133,7 +135,7 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator IncreaseMaxNests()
     {
-        while (gameStarted && currentMaxNests < 7)
+        while (gameStarted)
         {
             yield return new WaitForSeconds(increaseInterval);
             currentMaxNests++;
