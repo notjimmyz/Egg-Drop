@@ -2345,6 +2345,9 @@ MonoBehaviour:
   cameraTransform: {fileID: 519420032}
   spawnOffset: 5
   fixedY: -2.7
+  initialNestSpeed: 2
+  speedIncreaseRate: 0.2
+  maxNestSpeed: 10
 --- !u!4 &1116681571
 Transform:
   m_ObjectHideFlags: 0
