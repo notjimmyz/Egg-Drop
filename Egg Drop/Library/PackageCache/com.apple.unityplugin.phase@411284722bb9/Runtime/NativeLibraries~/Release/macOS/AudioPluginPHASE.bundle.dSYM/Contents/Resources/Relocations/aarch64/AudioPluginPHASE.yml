@@ -1,0 +1,123 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/tmp/AudioPluginPHASE.dst/Plugins/MacOS/AudioPluginPHASE.bundle/Contents/MacOS/AudioPluginPHASE'
+relocations:
+  - { offsetInCU: 0x27, offset: 0x27, size: 0x8, addend: 0x0, symName: _PHASECreateListener, symObjAddr: 0x0, symBinAddr: 0x3C44, symSize: 0x1C }
+  - { offsetInCU: 0x1853, offset: 0x1853, size: 0x8, addend: 0x0, symName: _PHASECreateListener, symObjAddr: 0x0, symBinAddr: 0x3C44, symSize: 0x1C }
+  - { offsetInCU: 0x196E, offset: 0x196E, size: 0x8, addend: 0x0, symName: __ZN12_GLOBAL__N_110CreateMeshEiPKfS1_iPKj, symObjAddr: 0x1A8, symBinAddr: 0x3DEC, symSize: 0x1E8 }
+  - { offsetInCU: 0x1AAB, offset: 0x1AAB, size: 0x8, addend: 0x0, symName: _PHASESetListenerTransform, symObjAddr: 0x1C, symBinAddr: 0x3C60, symSize: 0xA4 }
+  - { offsetInCU: 0x1B0C, offset: 0x1B0C, size: 0x8, addend: 0x0, symName: _PHASESetListenerGain, symObjAddr: 0xC0, symBinAddr: 0x3D04, symSize: 0x2C }
+  - { offsetInCU: 0x1B44, offset: 0x1B44, size: 0x8, addend: 0x0, symName: _PHASEGetListenerGain, symObjAddr: 0xEC, symBinAddr: 0x3D30, symSize: 0x1C }
+  - { offsetInCU: 0x1B6D, offset: 0x1B6D, size: 0x8, addend: 0x0, symName: _PHASEDestroyListener, symObjAddr: 0x108, symBinAddr: 0x3D4C, symSize: 0x1C }
+  - { offsetInCU: 0x1B96, offset: 0x1B96, size: 0x8, addend: 0x0, symName: _PHASECreateVolumetricSource, symObjAddr: 0x124, symBinAddr: 0x3D68, symSize: 0x84 }
+  - { offsetInCU: 0x1CDE, offset: 0x1CDE, size: 0x8, addend: 0x0, symName: _PHASECreatePointSource, symObjAddr: 0x390, symBinAddr: 0x3FD4, symSize: 0x64 }
+  - { offsetInCU: 0x1D33, offset: 0x1D33, size: 0x8, addend: 0x0, symName: _PHASESetSourceTransform, symObjAddr: 0x3F4, symBinAddr: 0x4038, symSize: 0xB4 }
+  - { offsetInCU: 0x1DA3, offset: 0x1DA3, size: 0x8, addend: 0x0, symName: _PHASESetSourceGain, symObjAddr: 0x4A8, symBinAddr: 0x40EC, symSize: 0x3C }
+  - { offsetInCU: 0x1DEA, offset: 0x1DEA, size: 0x8, addend: 0x0, symName: _PHASEGetSourceGain, symObjAddr: 0x4E4, symBinAddr: 0x4128, symSize: 0x2C }
+  - { offsetInCU: 0x1E22, offset: 0x1E22, size: 0x8, addend: 0x0, symName: _PHASEDestroySource, symObjAddr: 0x510, symBinAddr: 0x4154, symSize: 0x2C }
+  - { offsetInCU: 0x1E56, offset: 0x1E56, size: 0x8, addend: 0x0, symName: _PHASECreateOccluder, symObjAddr: 0x53C, symBinAddr: 0x4180, symSize: 0x84 }
+  - { offsetInCU: 0x1F43, offset: 0x1F43, size: 0x8, addend: 0x0, symName: _PHASESetOccluderTransform, symObjAddr: 0x5C0, symBinAddr: 0x4204, symSize: 0xB4 }
+  - { offsetInCU: 0x1FB3, offset: 0x1FB3, size: 0x8, addend: 0x0, symName: _PHASESetOccluderMaterial, symObjAddr: 0x674, symBinAddr: 0x42B8, symSize: 0x44 }
+  - { offsetInCU: 0x2009, offset: 0x2009, size: 0x8, addend: 0x0, symName: _PHASEDestroyOccluder, symObjAddr: 0x6B8, symBinAddr: 0x42FC, symSize: 0x2C }
+  - { offsetInCU: 0x203D, offset: 0x203D, size: 0x8, addend: 0x0, symName: _PHASECreateMaterialFromPreset, symObjAddr: 0x6E4, symBinAddr: 0x4328, symSize: 0x44 }
+  - { offsetInCU: 0x2093, offset: 0x2093, size: 0x8, addend: 0x0, symName: _PHASEDestroyMaterial, symObjAddr: 0x728, symBinAddr: 0x436C, symSize: 0x3C }
+  - { offsetInCU: 0x20D6, offset: 0x20D6, size: 0x8, addend: 0x0, symName: _PHASESetSceneReverbPreset, symObjAddr: 0x764, symBinAddr: 0x43A8, symSize: 0x2C }
+  - { offsetInCU: 0x2119, offset: 0x2119, size: 0x8, addend: 0x0, symName: _PHASEStart, symObjAddr: 0x790, symBinAddr: 0x43D4, symSize: 0x1C }
+  - { offsetInCU: 0x2142, offset: 0x2142, size: 0x8, addend: 0x0, symName: _PHASEStop, symObjAddr: 0x7AC, symBinAddr: 0x43F0, symSize: 0x1C }
+  - { offsetInCU: 0x2167, offset: 0x2167, size: 0x8, addend: 0x0, symName: _PHASEUpdate, symObjAddr: 0x7C8, symBinAddr: 0x440C, symSize: 0x1C }
+  - { offsetInCU: 0x27, offset: 0x2BC8, size: 0x8, addend: 0x0, symName: _PHASERegisterAudioBuffer, symObjAddr: 0x0, symBinAddr: 0x4428, symSize: 0x168 }
+  - { offsetInCU: 0x13F8, offset: 0x3F99, size: 0x8, addend: 0x0, symName: _PHASERegisterAudioBuffer, symObjAddr: 0x0, symBinAddr: 0x4428, symSize: 0x168 }
+  - { offsetInCU: 0x1510, offset: 0x40B1, size: 0x8, addend: 0x0, symName: _PHASEUnregisterAudioAsset, symObjAddr: 0x168, symBinAddr: 0x4590, symSize: 0x3C }
+  - { offsetInCU: 0x1553, offset: 0x40F4, size: 0x8, addend: 0x0, symName: _PHASERegisterAudioFile, symObjAddr: 0x1A4, symBinAddr: 0x45CC, symSize: 0x12C }
+  - { offsetInCU: 0x15F2, offset: 0x4193, size: 0x8, addend: 0x0, symName: _PHASECreateSpatialMixer, symObjAddr: 0x2D0, symBinAddr: 0x46F8, symSize: 0xB0 }
+  - { offsetInCU: 0x168B, offset: 0x422C, size: 0x8, addend: 0x0, symName: _PHASECreateChannelMixer, symObjAddr: 0x380, symBinAddr: 0x47A8, symSize: 0x50 }
+  - { offsetInCU: 0x16E1, offset: 0x4282, size: 0x8, addend: 0x0, symName: _PHASECreateAmbientMixer, symObjAddr: 0x3D0, symBinAddr: 0x47F8, symSize: 0x80 }
+  - { offsetInCU: 0x1742, offset: 0x42E3, size: 0x8, addend: 0x0, symName: _PHASEDestroyMixer, symObjAddr: 0x450, symBinAddr: 0x4878, symSize: 0x2C }
+  - { offsetInCU: 0x1776, offset: 0x4317, size: 0x8, addend: 0x0, symName: _PHASECreateSoundEventParameterInt, symObjAddr: 0x47C, symBinAddr: 0x48A4, symSize: 0x6C }
+  - { offsetInCU: 0x17EA, offset: 0x438B, size: 0x8, addend: 0x0, symName: _PHASEGetSoundEventParameterInt, symObjAddr: 0x4E8, symBinAddr: 0x4910, symSize: 0x44 }
+  - { offsetInCU: 0x1840, offset: 0x43E1, size: 0x8, addend: 0x0, symName: _PHASESetSoundEventParameterInt, symObjAddr: 0x52C, symBinAddr: 0x4954, symSize: 0x54 }
+  - { offsetInCU: 0x18A5, offset: 0x4446, size: 0x8, addend: 0x0, symName: _PHASECreateSoundEventParameterDbl, symObjAddr: 0x580, symBinAddr: 0x49A8, symSize: 0x6C }
+  - { offsetInCU: 0x1919, offset: 0x44BA, size: 0x8, addend: 0x0, symName: _PHASEGetSoundEventParameterDbl, symObjAddr: 0x5EC, symBinAddr: 0x4A14, symSize: 0x44 }
+  - { offsetInCU: 0x196F, offset: 0x4510, size: 0x8, addend: 0x0, symName: _PHASESetSoundEventParameterDbl, symObjAddr: 0x630, symBinAddr: 0x4A58, symSize: 0x54 }
+  - { offsetInCU: 0x19D4, offset: 0x4575, size: 0x8, addend: 0x0, symName: _PHASECreateSoundEventParameterStr, symObjAddr: 0x684, symBinAddr: 0x4AAC, symSize: 0x64 }
+  - { offsetInCU: 0x1A39, offset: 0x45DA, size: 0x8, addend: 0x0, symName: _PHASEGetSoundEventParameterStr, symObjAddr: 0x6E8, symBinAddr: 0x4B10, symSize: 0x70 }
+  - { offsetInCU: 0x1ABC, offset: 0x465D, size: 0x8, addend: 0x0, symName: _PHASESetSoundEventParameterStr, symObjAddr: 0x758, symBinAddr: 0x4B80, symSize: 0x64 }
+  - { offsetInCU: 0x1B30, offset: 0x46D1, size: 0x8, addend: 0x0, symName: _PHASESetMixerGainMetaParameter, symObjAddr: 0x7BC, symBinAddr: 0x4BE4, symSize: 0x34 }
+  - { offsetInCU: 0x1B77, offset: 0x4718, size: 0x8, addend: 0x0, symName: _PHASEDestroySoundEventParameter, symObjAddr: 0x7F0, symBinAddr: 0x4C18, symSize: 0x2C }
+  - { offsetInCU: 0x1BAB, offset: 0x474C, size: 0x8, addend: 0x0, symName: _PHASECreateMappedMetaParameter, symObjAddr: 0x81C, symBinAddr: 0x4C44, symSize: 0x50 }
+  - { offsetInCU: 0x1BF2, offset: 0x4793, size: 0x8, addend: 0x0, symName: _PHASEDestroyMappedMetaParameter, symObjAddr: 0x86C, symBinAddr: 0x4C94, symSize: 0x2C }
+  - { offsetInCU: 0x1C26, offset: 0x47C7, size: 0x8, addend: 0x0, symName: _PHASECreateSoundEventSamplerNode, symObjAddr: 0x898, symBinAddr: 0x4CC0, symSize: 0xC0 }
+  - { offsetInCU: 0x1CE8, offset: 0x4889, size: 0x8, addend: 0x0, symName: _PHASECreateSoundEventSwitchNode, symObjAddr: 0x958, symBinAddr: 0x4D80, symSize: 0xF4 }
+  - { offsetInCU: 0x1DCC, offset: 0x496D, size: 0x8, addend: 0x0, symName: _PHASECreateSoundEventRandomNode, symObjAddr: 0xA4C, symBinAddr: 0x4E74, symSize: 0xE0 }
+  - { offsetInCU: 0x1EA0, offset: 0x4A41, size: 0x8, addend: 0x0, symName: _PHASECreateSoundEventBlendNode, symObjAddr: 0xB2C, symBinAddr: 0x4F54, symSize: 0x8C }
+  - { offsetInCU: 0x1F38, offset: 0x4AD9, size: 0x8, addend: 0x0, symName: _PHASECreateSoundEventContainerNode, symObjAddr: 0xBB8, symBinAddr: 0x4FE0, symSize: 0x74 }
+  - { offsetInCU: 0x1FB0, offset: 0x4B51, size: 0x8, addend: 0x0, symName: _PHASEDestroySoundEventNode, symObjAddr: 0xC2C, symBinAddr: 0x5054, symSize: 0x2C }
+  - { offsetInCU: 0x1FE7, offset: 0x4B88, size: 0x8, addend: 0x0, symName: _PHASERegisterSoundEventAsset, symObjAddr: 0xC58, symBinAddr: 0x5080, symSize: 0x44 }
+  - { offsetInCU: 0x2042, offset: 0x4BE3, size: 0x8, addend: 0x0, symName: _PHASEUnregisterSoundEventAsset, symObjAddr: 0xC9C, symBinAddr: 0x50C4, symSize: 0x3C }
+  - { offsetInCU: 0x2089, offset: 0x4C2A, size: 0x8, addend: 0x0, symName: _PHASEPlaySoundEvent, symObjAddr: 0xCD8, symBinAddr: 0x5100, symSize: 0xE8 }
+  - { offsetInCU: 0x2152, offset: 0x4CF3, size: 0x8, addend: 0x0, symName: _PHASEStopSoundEvent, symObjAddr: 0xDC0, symBinAddr: 0x51E8, symSize: 0x2C }
+  - { offsetInCU: 0x27, offset: 0x545B, size: 0x8, addend: 0x0, symName: '+[PHASEEngineWrapper sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x5214, symSize: 0x64 }
+  - { offsetInCU: 0x34, offset: 0x5468, size: 0x8, addend: 0x0, symName: '+[PHASEEngineWrapper sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x5214, symSize: 0x64 }
+  - { offsetInCU: 0x5D, offset: 0x5491, size: 0x8, addend: 0x0, symName: '__ZZ36+[PHASEEngineWrapper sharedInstance]E7wrapper', symObjAddr: 0x1E8C0, symBinAddr: 0x10920, symSize: 0x0 }
+  - { offsetInCU: 0x72, offset: 0x54A6, size: 0x8, addend: 0x0, symName: '__ZZ36+[PHASEEngineWrapper sharedInstance]E8onceFlag', symObjAddr: 0x1E8C8, symBinAddr: 0x10928, symSize: 0x0 }
+  - { offsetInCU: 0x14E0, offset: 0x6914, size: 0x8, addend: 0x0, symName: '__ZNSt3__117__call_once_proxyB8ue170006INS_5tupleIJOZ36+[PHASEEngineWrapper sharedInstance]E3$_0EEEEEvPv', symObjAddr: 0x2CF8, symBinAddr: 0x7F0C, symSize: 0x2C }
+  - { offsetInCU: 0x3939, offset: 0x8D6D, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper init]', symObjAddr: 0x64, symBinAddr: 0x5278, symSize: 0xEC }
+  - { offsetInCU: 0x3989, offset: 0x8DBD, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createListener]', symObjAddr: 0x150, symBinAddr: 0x5364, symSize: 0xB8 }
+  - { offsetInCU: 0x39F5, offset: 0x8E29, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setListenerTransform:]', symObjAddr: 0x208, symBinAddr: 0x541C, symSize: 0x40 }
+  - { offsetInCU: 0x3A41, offset: 0x8E75, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setListenerGain:]', symObjAddr: 0x248, symBinAddr: 0x545C, symSize: 0x40 }
+  - { offsetInCU: 0x3A91, offset: 0x8EC5, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper getListenerGain]', symObjAddr: 0x288, symBinAddr: 0x549C, symSize: 0x30 }
+  - { offsetInCU: 0x3AD2, offset: 0x8F06, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper destroyListener]', symObjAddr: 0x2B8, symBinAddr: 0x54CC, symSize: 0x5C }
+  - { offsetInCU: 0x3B13, offset: 0x8F47, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createSourceWithMesh:]', symObjAddr: 0x314, symBinAddr: 0x5528, symSize: 0x164 }
+  - { offsetInCU: 0x3BA1, offset: 0x8FD5, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createSource]', symObjAddr: 0x478, symBinAddr: 0x568C, symSize: 0xC8 }
+  - { offsetInCU: 0x3C11, offset: 0x9045, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setSourceTransformWithId:transform:]', symObjAddr: 0x540, symBinAddr: 0x5754, symSize: 0x7C }
+  - { offsetInCU: 0x3C7B, offset: 0x90AF, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setSourceGainWithId:sourceGain:]', symObjAddr: 0x5BC, symBinAddr: 0x57D0, symSize: 0x6C }
+  - { offsetInCU: 0x3CE9, offset: 0x911D, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper getSourceGainWithId:]', symObjAddr: 0x628, symBinAddr: 0x583C, symSize: 0x54 }
+  - { offsetInCU: 0x3D48, offset: 0x917C, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper destroySourceWithId:]', symObjAddr: 0x67C, symBinAddr: 0x5890, symSize: 0x84 }
+  - { offsetInCU: 0x3D99, offset: 0x91CD, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createOccluderWithMesh:]', symObjAddr: 0x700, symBinAddr: 0x5914, symSize: 0x164 }
+  - { offsetInCU: 0x3E2E, offset: 0x9262, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setOccluderTransformWithId:transform:]', symObjAddr: 0x864, symBinAddr: 0x5A78, symSize: 0x6C }
+  - { offsetInCU: 0x3E8F, offset: 0x92C3, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setOccluderMaterialWithId:materialName:]', symObjAddr: 0x8D0, symBinAddr: 0x5AE4, symSize: 0x148 }
+  - { offsetInCU: 0x3F20, offset: 0x9354, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper destroyOccluderWithId:]', symObjAddr: 0xA18, symBinAddr: 0x5C2C, symSize: 0x84 }
+  - { offsetInCU: 0x3F71, offset: 0x93A5, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createMaterialWithName:preset:]', symObjAddr: 0xA9C, symBinAddr: 0x5CB0, symSize: 0x94 }
+  - { offsetInCU: 0x3FF3, offset: 0x9427, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper destroyMaterialWithName:]', symObjAddr: 0xB30, symBinAddr: 0x5D44, symSize: 0x8 }
+  - { offsetInCU: 0x4034, offset: 0x9468, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setSceneReverbWithPreset:]', symObjAddr: 0xB38, symBinAddr: 0x5D4C, symSize: 0x8 }
+  - { offsetInCU: 0x4075, offset: 0x94A9, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper registerAudioBufferWithData:identifier:audioFormat:]', symObjAddr: 0xB40, symBinAddr: 0x5D54, symSize: 0xB4 }
+  - { offsetInCU: 0x4104, offset: 0x9538, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper registerAudioAssetWithURL:identifier:audioFormat:]', symObjAddr: 0xBF4, symBinAddr: 0x5E08, symSize: 0x8C }
+  - { offsetInCU: 0x4186, offset: 0x95BA, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper unregisterAudioBufferWithIdentifier:]', symObjAddr: 0xC80, symBinAddr: 0x5E94, symSize: 0x2C }
+  - { offsetInCU: 0x41C7, offset: 0x95FB, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createSpatialMixerWithName:enableDirectPath:enableEarlyReflections:enableLateReverb:cullDistance:sourceDirectivityModelParameters:listenerDirectivityModelParameters:]', symObjAddr: 0xCAC, symBinAddr: 0x5EC0, symSize: 0x4A8 }
+  - { offsetInCU: 0x44CC, offset: 0x9900, size: 0x8, addend: 0x0, symName: '+[PHASEEngineWrapper getChannelLayoutTag:]', symObjAddr: 0x1154, symBinAddr: 0x6368, symSize: 0x34 }
+  - { offsetInCU: 0x452A, offset: 0x995E, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createChannelMixerWithName:channelLayout:]', symObjAddr: 0x1188, symBinAddr: 0x639C, symSize: 0x88 }
+  - { offsetInCU: 0x45BB, offset: 0x99EF, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createAmbientMixerWithName:channelLayout:orientation:]', symObjAddr: 0x1210, symBinAddr: 0x6424, symSize: 0xD4 }
+  - { offsetInCU: 0x4670, offset: 0x9AA4, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper destroyMixerWithId:]', symObjAddr: 0x12E4, symBinAddr: 0x64F8, symSize: 0x30 }
+  - { offsetInCU: 0x46B1, offset: 0x9AE5, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createMetaParameterWithName:defaultIntValue:minimumValue:maximumValue:]', symObjAddr: 0x1314, symBinAddr: 0x6528, symSize: 0x94 }
+  - { offsetInCU: 0x4752, offset: 0x9B86, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper getMetaParameterIntValueWithId:parameterName:]', symObjAddr: 0x13A8, symBinAddr: 0x65BC, symSize: 0x110 }
+  - { offsetInCU: 0x47C4, offset: 0x9BF8, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setMetaParameterWithId:parameterName:intValue:]', symObjAddr: 0x14B8, symBinAddr: 0x66CC, symSize: 0x17C }
+  - { offsetInCU: 0x486F, offset: 0x9CA3, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createMetaParameterWithName:defaultDblValue:minimumValue:maximumValue:]', symObjAddr: 0x1634, symBinAddr: 0x6848, symSize: 0x94 }
+  - { offsetInCU: 0x4910, offset: 0x9D44, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper getMetaParameterDblValueWithId:parameterName:]', symObjAddr: 0x16C8, symBinAddr: 0x68DC, symSize: 0x110 }
+  - { offsetInCU: 0x4982, offset: 0x9DB6, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setMetaParameterWithId:parameterName:doubleValue:]', symObjAddr: 0x17D8, symBinAddr: 0x69EC, symSize: 0x168 }
+  - { offsetInCU: 0x4A2D, offset: 0x9E61, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createMetaParameterWithName:defaultStrValue:]', symObjAddr: 0x1940, symBinAddr: 0x6B54, symSize: 0x7C }
+  - { offsetInCU: 0x4AAE, offset: 0x9EE2, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper getMetaParameterStrValueWithId:parameterName:]', symObjAddr: 0x19BC, symBinAddr: 0x6BD0, symSize: 0x10C }
+  - { offsetInCU: 0x4B20, offset: 0x9F54, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setMetaParameterWithId:parameterName:stringValue:]', symObjAddr: 0x1AC8, symBinAddr: 0x6CDC, symSize: 0xD0 }
+  - { offsetInCU: 0x4BA2, offset: 0x9FD6, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper destroyMetaParameterWithId:]', symObjAddr: 0x1B98, symBinAddr: 0x6DAC, symSize: 0x30 }
+  - { offsetInCU: 0x4BE3, offset: 0xA017, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper setMixerGainParameterOnMixerWithId:mixerId:]', symObjAddr: 0x1BC8, symBinAddr: 0x6DDC, symSize: 0xFC }
+  - { offsetInCU: 0x4C72, offset: 0xA0A6, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createMappedMetaParameterWithParameterId:envelopeParameters:]', symObjAddr: 0x1CC4, symBinAddr: 0x6ED8, symSize: 0x148 }
+  - { offsetInCU: 0x4D61, offset: 0xA195, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper destoryMappedMetaParameterWithId:]', symObjAddr: 0x1E0C, symBinAddr: 0x7020, symSize: 0x30 }
+  - { offsetInCU: 0x4DA2, offset: 0xA1D6, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createSoundEventSamplerNodeWithAsset:mixerId:rateParameterId:looping:calibrationMode:level:]', symObjAddr: 0x1E3C, symBinAddr: 0x7050, symSize: 0x198 }
+  - { offsetInCU: 0x4EA2, offset: 0xA2D6, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createSoundEventSwitchNodeWithParameter:switchEntries:]', symObjAddr: 0x1FD4, symBinAddr: 0x71E8, symSize: 0x1F4 }
+  - { offsetInCU: 0x4F61, offset: 0xA395, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createSoundEventRandomNodeWithEntries:]', symObjAddr: 0x21C8, symBinAddr: 0x73DC, symSize: 0x1B0 }
+  - { offsetInCU: 0x5010, offset: 0xA444, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createSoundEventBlendNodeWithParameter:blendRanges:numRanges:useAutoDistanceBlend:]', symObjAddr: 0x2378, symBinAddr: 0x758C, symSize: 0x240 }
+  - { offsetInCU: 0x513D, offset: 0xA571, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper createSoundEventContainerNodeWithChild:numChildren:]', symObjAddr: 0x25B8, symBinAddr: 0x77CC, symSize: 0xF0 }
+  - { offsetInCU: 0x51FE, offset: 0xA632, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper destroySoundEventNodeWithId:]', symObjAddr: 0x26A8, symBinAddr: 0x78BC, symSize: 0x30 }
+  - { offsetInCU: 0x523F, offset: 0xA673, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper registerSoundEventWithName:rootNodeId:]', symObjAddr: 0x26D8, symBinAddr: 0x78EC, symSize: 0xAC }
+  - { offsetInCU: 0x52CE, offset: 0xA702, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper unregisterSoundEventWithName:]', symObjAddr: 0x2784, symBinAddr: 0x7998, symSize: 0x68 }
+  - { offsetInCU: 0x530F, offset: 0xA743, size: 0x8, addend: 0x0, symName: '___51-[PHASEEngineWrapper unregisterSoundEventWithName:]_block_invoke', symObjAddr: 0x27EC, symBinAddr: 0x7A00, symSize: 0x30 }
+  - { offsetInCU: 0x5368, offset: 0xA79C, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32o, symObjAddr: 0x281C, symBinAddr: 0x7A30, symSize: 0x10 }
+  - { offsetInCU: 0x5391, offset: 0xA7C5, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32o, symObjAddr: 0x282C, symBinAddr: 0x7A40, symSize: 0xC }
+  - { offsetInCU: 0x53B0, offset: 0xA7E4, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper playSoundEventWithName:sourceId:mixerIds:numMixers:completionHandler:]', symObjAddr: 0x2838, symBinAddr: 0x7A4C, symSize: 0x2D0 }
+  - { offsetInCU: 0x54DB, offset: 0xA90F, size: 0x8, addend: 0x0, symName: '___91-[PHASEEngineWrapper playSoundEventWithName:sourceId:mixerIds:numMixers:completionHandler:]_block_invoke', symObjAddr: 0x2B08, symBinAddr: 0x7D1C, symSize: 0xC8 }
+  - { offsetInCU: 0x5597, offset: 0xA9CB, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32o40o, symObjAddr: 0x2BD0, symBinAddr: 0x7DE4, symSize: 0x3C }
+  - { offsetInCU: 0x55C0, offset: 0xA9F4, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32o40o, symObjAddr: 0x2C0C, symBinAddr: 0x7E20, symSize: 0x30 }
+  - { offsetInCU: 0x55DF, offset: 0xAA13, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper stopSoundEventWithId:]', symObjAddr: 0x2C3C, symBinAddr: 0x7E50, symSize: 0x4C }
+  - { offsetInCU: 0x5634, offset: 0xAA68, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper start]', symObjAddr: 0x2C88, symBinAddr: 0x7E9C, symSize: 0x60 }
+  - { offsetInCU: 0x5696, offset: 0xAACA, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper stop]', symObjAddr: 0x2CE8, symBinAddr: 0x7EFC, symSize: 0x8 }
+  - { offsetInCU: 0x56C8, offset: 0xAAFC, size: 0x8, addend: 0x0, symName: '-[PHASEEngineWrapper update]', symObjAddr: 0x2CF0, symBinAddr: 0x7F04, symSize: 0x8 }
+...

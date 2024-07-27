@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "packages": {
+    "com.apple.unityplugin.accessibility": {
+      "tarball": {
+        "hash": "16450c89a0ee",
+        "mtime": 1722052674323,
+        "size": 578325,
+        "localPath": "/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.accessibility-1.1.1.tgz"
+      }
+    },
+    "com.apple.unityplugin.core": {
+      "tarball": {
+        "hash": "c4601ec52e0e",
+        "mtime": 1722052672099,
+        "size": 2558497,
+        "localPath": "/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.core-3.1.3.tgz"
+      }
+    },
+    "com.apple.unityplugin.corehaptics": {
+      "tarball": {
+        "hash": "ad178bc933d5",
+        "mtime": 1722052673966,
+        "size": 2691181,
+        "localPath": "/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.corehaptics-1.2.1.tgz"
+      }
+    },
+    "com.apple.unityplugin.gamecontroller": {
+      "tarball": {
+        "hash": "ff15d78e26b7",
+        "mtime": 1722052672916,
+        "size": 2771065,
+        "localPath": "/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.gamecontroller-1.2.1.tgz"
+      }
+    },
+    "com.apple.unityplugin.gamekit": {
+      "tarball": {
+        "hash": "d778940144eb",
+        "mtime": 1722052676045,
+        "size": 5838529,
+        "localPath": "/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.gamekit-2.2.2.tgz"
+      }
+    },
+    "com.apple.unityplugin.phase": {
+      "tarball": {
+        "hash": "411284722bb9",
+        "mtime": 1722052683069,
+        "size": 53170842,
+        "localPath": "/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.phase-1.2.0.tgz"
+      }
+    }
+  }
+}

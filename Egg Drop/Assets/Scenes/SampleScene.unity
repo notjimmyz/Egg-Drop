@@ -2337,17 +2337,18 @@ MonoBehaviour:
   prefab: {fileID: 6740805503686521779, guid: 83a10e60bc65240afa287dc9a5abf6b2, type: 3}
   initialMinSpawnRate: 0.2
   initialMaxSpawnRate: 1
-  minGapIncreaseRate: 0.01
-  maxGapIncreaseRate: 0.02
+  minGapIncreaseRate: 0
+  maxGapIncreaseRate: 0.01
   minDistanceBetweenNests: 1
   initialMaxNests: 2
   increaseInterval: 30
   cameraTransform: {fileID: 519420032}
   spawnOffset: 5
   fixedY: -2.7
-  initialNestSpeed: 2
+  initialNestSpeed: 1
   speedIncreaseRate: 0.2
   maxNestSpeed: 10
+  maxSpawnRateCap: 1.2
 --- !u!4 &1116681571
 Transform:
   m_ObjectHideFlags: 0

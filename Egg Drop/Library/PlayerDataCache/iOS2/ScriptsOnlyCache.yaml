@@ -1,5 +1,23 @@
 ScriptsOnlyBuild:
   usedScripts:
+    Apple.Accessibility.Editor.dll:
+    - Apple.Accessibility.Editor.AppleAccessibilityBuildStep
+    Apple.Core.Editor.dll:
+    - Apple.Core.AppleBuildProfile
+    - Apple.Core.AppleCoreBuildStep
+    - Apple.Core.AppleSecurityBuildStep
+    - Apple.Core.AppleUserManagementBuildStep
+    Apple.CoreHaptics.Editor.dll:
+    - Apple.CoreHaptics.Editor.CHBuildStep
+    Apple.GameController.Editor.dll:
+    - Apple.GameController.Editor.AppleGameControllerBuildStep
+    Apple.GameKit.Editor.dll:
+    - Apple.GameKit.Editor.AppleGameKitBuildStep
+    Apple.PHASE:
+    - Apple.PHASE.PHASEOccluder
+    - Apple.PHASE.PHASESource
+    Apple.PHASE.Editor.dll:
+    - Apple.PHASE.Editor.PHASEBuildStep
     Assembly-CSharp.dll:
     - Bird
     - CameraMove
@@ -28,6 +46,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.RiderScriptEditorData
+    - Packages.Rider.Editor.RiderScriptEditorPersistedState
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
     - TMPro.TMP_ColorGradient
@@ -68,6 +87,13 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteGlyph
     - TMPro.TMP_Style
     - TMPro.VertexGradient
+    UnityEditor.CoreModule:
+    - TreeEditor.SplineNode
+    - TreeEditor.TreeGroupBranch
+    - TreeEditor.TreeGroupLeaf
+    - TreeEditor.TreeGroupRoot
+    - TreeEditor.TreeNode
+    - TreeEditor.TreeSpline
     UnityEngine.CoreModule:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
@@ -114,6 +140,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -125,56 +153,68 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1640}
+      Script: {instanceID: -282}
     - Class: 114
-      Script: {instanceID: 1644}
+      Script: {instanceID: 1642}
     - Class: 114
-      Script: {instanceID: 2368}
+      Script: {instanceID: 1646}
     - Class: 114
-      Script: {instanceID: 2918}
+      Script: {instanceID: 2370}
     - Class: 114
-      Script: {instanceID: 3182}
+      Script: {instanceID: 2920}
     - Class: 114
-      Script: {instanceID: 3534}
+      Script: {instanceID: 3184}
     - Class: 114
-      Script: {instanceID: 3586}
+      Script: {instanceID: 3536}
     - Class: 114
-      Script: {instanceID: 3594}
+      Script: {instanceID: 3588}
     - Class: 114
-      Script: {instanceID: 4166}
+      Script: {instanceID: 3596}
     - Class: 114
-      Script: {instanceID: 4688}
+      Script: {instanceID: 4168}
     - Class: 114
-      Script: {instanceID: 4744}
+      Script: {instanceID: 4690}
     - Class: 114
-      Script: {instanceID: 4826}
+      Script: {instanceID: 4746}
     - Class: 114
-      Script: {instanceID: 5148}
+      Script: {instanceID: 4828}
     - Class: 114
-      Script: {instanceID: 5818}
+      Script: {instanceID: 5150}
     - Class: 114
-      Script: {instanceID: 6086}
+      Script: {instanceID: 5820}
     - Class: 114
-      Script: {instanceID: 6608}
+      Script: {instanceID: 6088}
     - Class: 114
-      Script: {instanceID: 6792}
+      Script: {instanceID: 6610}
     - Class: 114
-      Script: {instanceID: 6796}
+      Script: {instanceID: 6794}
     - Class: 114
-      Script: {instanceID: 7010}
+      Script: {instanceID: 6798}
     - Class: 114
-      Script: {instanceID: 7418}
+      Script: {instanceID: 7012}
     - Class: 114
-      Script: {instanceID: 8552}
+      Script: {instanceID: 7420}
     - Class: 114
-      Script: {instanceID: 8680}
+      Script: {instanceID: 8554}
     - Class: 114
-      Script: {instanceID: 25428}
+      Script: {instanceID: 8682}
+    - Class: 114
+      Script: {instanceID: 25756}
+    - Class: 114
+      Script: {instanceID: 27056}
+    - Class: 114
+      Script: {instanceID: 27260}
+    - Class: 114
+      Script: {instanceID: 27410}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
     - Class: 157
+      Script: {instanceID: 0}
+    - Class: 193
       Script: {instanceID: 0}
     - Class: 196
       Script: {instanceID: 0}
@@ -851,7 +891,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: beb4796930a21895e8ca254ea74ff8d0
+      Hash: 035a35dc90015f51977e74bd33fd841d
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Spawner
@@ -1431,6 +1471,126 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: b564743c7ed40680f725b0aac524b8cb
+    assemblyName: Apple.Accessibility
+    namespaceName: Apple.Accessibility
+    className: AccessibilityNode
+  - hash:
+      serializedVersion: 2
+      Hash: 9c25b867d9806e22a13fc9164188ca15
+    assemblyName: Apple.CoreHaptics
+    namespaceName: Apple.CoreHaptics
+    className: CHHapticPlayer
+  - hash:
+      serializedVersion: 2
+      Hash: 0243208803db21f2245a70d095683ce6
+    assemblyName: Apple.CoreHaptics
+    namespaceName: Apple.CoreHaptics
+    className: AHAPAsset
+  - hash:
+      serializedVersion: 2
+      Hash: f5d7a5b9e3e096dc6faa9da7f7c789f9
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventMappedParameter
+  - hash:
+      serializedVersion: 2
+      Hash: 8b2848eb8866ff79d0a57e554f5f0a11
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventRandomNode
+  - hash:
+      serializedVersion: 2
+      Hash: 69bcd63efb1fb4a107c87be01d7503e5
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASEOccluder
+  - hash:
+      serializedVersion: 2
+      Hash: 1e183c79a207c824f9a86594049fc46c
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventParameterString
+  - hash:
+      serializedVersion: 2
+      Hash: 558f7b55591104c39a628299dc13e14b
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventParameterInteger
+  - hash:
+      serializedVersion: 2
+      Hash: 6980d4c16f1a0f652c7dc6c850eebaea
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventSwitchNode
+  - hash:
+      serializedVersion: 2
+      Hash: fcc23873a54c6a868ba1067558c70568
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASEChannelMixer
+  - hash:
+      serializedVersion: 2
+      Hash: 179117465f919d4a92f0a618e4fea02b
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASEListener
+  - hash:
+      serializedVersion: 2
+      Hash: 41557be3e5e64a760d2eb69b84deb8c6
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventNodeGraph
+  - hash:
+      serializedVersion: 2
+      Hash: fd6b2ac296e2f0322450e30d059a7c02
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventBlendNode
+  - hash:
+      serializedVersion: 2
+      Hash: 85c4945b8ee9d14d71a306504ed240eb
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventContainerNode
+  - hash:
+      serializedVersion: 2
+      Hash: 0cacb39ab1bed81cd33bb59c870f25f6
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventSamplerNode
+  - hash:
+      serializedVersion: 2
+      Hash: 316b1f6dbb13b9f156ab0852195c0a32
+    assemblyName: XNode
+    namespaceName: XNode
+    className: SceneGraph
+  - hash:
+      serializedVersion: 2
+      Hash: 30b2736bf28cfe8b10b640f8d909e420
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESoundEventParameterDouble
+  - hash:
+      serializedVersion: 2
+      Hash: 4a95d5ee6167837eedb7c43299c4b23d
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESource
+  - hash:
+      serializedVersion: 2
+      Hash: 0829f325933a2222f6e9a1f15dd6f4bb
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASEAmbientMixer
+  - hash:
+      serializedVersion: 2
+      Hash: 5d0454232460387c7eace718f736472b
+    assemblyName: Apple.PHASE
+    namespaceName: Apple.PHASE
+    className: PHASESpatialMixer
   platform: 9
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

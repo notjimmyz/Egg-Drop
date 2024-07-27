@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.apple.unityplugin.accessibility": "file:/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.accessibility-1.1.1.tgz",
+    "com.apple.unityplugin.core": "file:/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.core-3.1.3.tgz",
+    "com.apple.unityplugin.corehaptics": "file:/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.corehaptics-1.2.1.tgz",
+    "com.apple.unityplugin.gamecontroller": "file:/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.gamecontroller-1.2.1.tgz",
+    "com.apple.unityplugin.gamekit": "file:/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.gamekit-2.2.2.tgz",
+    "com.apple.unityplugin.phase": "file:/Users/jimmyzhong/Downloads/unityplugins-main/Build/com.apple.unityplugin.phase-1.2.0.tgz",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.2d": "2.0.1",
     "com.unity.ide.rider": "3.0.28",
