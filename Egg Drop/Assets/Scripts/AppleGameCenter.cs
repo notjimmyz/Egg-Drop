@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Apple.GameKit;
 
-public class AppleGameCenter : MonoBehaviour
+public class AppleGameCenter: MonoBehaviour
 {
     string Signature;
     string TeamPlayerID;
@@ -30,7 +30,7 @@ public class AppleGameCenter : MonoBehaviour
             Debug.Log($"Local Player: {localPlayer.DisplayName}");
 
             // Fetch the items.
-            var fetchItemsResponse =  await GKLocalPlayer.Local.FetchItems();
+            var fetchItemsResponse = await GKLocalPlayer.Local.FetchItems();
 
             Signature = Convert.ToBase64String(fetchItemsResponse.GetSignature());
             TeamPlayerID = localPlayer.TeamPlayerId;
